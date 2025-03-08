@@ -1,0 +1,273 @@
+{
+  "main": {
+    "id": "1b7e7a4ea3a5d826",
+    "type": "split",
+    "children": [
+      {
+        "id": "d4bc730a0900036d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "09c13945e2ff7cdd",
+            "type": "leaf",
+            "state": {
+              "type": "canvas",
+              "state": {
+                "file": "planing/plannfng.canvas",
+                "viewState": {
+                  "x": 520,
+                  "y": -656.5,
+                  "zoom": -0.8045093687862039
+                }
+              },
+              "icon": "lucide-layout-dashboard",
+              "title": "plannfng"
+            }
+          },
+          {
+            "id": "6278bc2f0391894a",
+            "type": "leaf",
+            "state": {
+              "type": "canvas",
+              "state": {
+                "file": "planing/plannfng.canvas",
+                "viewState": {
+                  "x": 520,
+                  "y": -656.5,
+                  "zoom": -0.8045093687862039
+                }
+              },
+              "icon": "lucide-layout-dashboard",
+              "title": "plannfng"
+            }
+          },
+          {
+            "id": "e6767a2c3164f180",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Untitled 1.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Untitled 1"
+            }
+          },
+          {
+            "id": "5742738cfb835559",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "javascript/2-objects/فرق for , map و for of , fo in  رو بهم بگو و بگو در چه سناریوی از چه حلقه ای رو در چه شرایطی استفاده کنیم ؟.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "فرق for , map و for of , fo in  رو بهم بگو و بگو در چه سناریوی از چه حلقه ای رو در چه شرایطی استفاده کنیم ؟"
+            }
+          },
+          {
+            "id": "459e013053825a90",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "javascript/2-objects/توضیحات کامل درباره Objectها.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "توضیحات کامل درباره Objectها"
+            }
+          }
+        ],
+        "currentTab": 4
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "1382fc5374517604",
+    "type": "split",
+    "children": [
+      {
+        "id": "95facec8d56031a5",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "2f06a13cf9d18031",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "66cbaf23127c4d5d",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "ad9f62c10b6f3664",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "d3e2fd27df8b390a",
+    "type": "split",
+    "children": [
+      {
+        "id": "dbd26605d0aa4aad",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "6ec46c6fe22e262a",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "typescript/prevent to noisy code type script.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for prevent to noisy code type script"
+            }
+          },
+          {
+            "id": "79ac6c76cf54b556",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links"
+            }
+          },
+          {
+            "id": "45e4b0401d32a410",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "3d49b631f45fffe5",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "javascript/2-objects/توضیحات کامل درباره Objectها.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of توضیحات کامل درباره Objectها"
+            }
+          }
+        ],
+        "currentTab": 3
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "459e013053825a90",
+  "lastOpenFiles": [
+    "javascript/2-objects/best practice برای for یا for of , for in , forEach , map با مثال ساده و کاربردی.md",
+    "javascript/3-string/string method.md",
+    "post-obsidan",
+    "turbo/turbo repo.md",
+    "javascript/3-string",
+    "planing/course inveset.md",
+    "turbo",
+    "planing/plannfng.canvas",
+    "nextjs/fetchData  and update data.md",
+    "React/UseReducer.md",
+    "typescript/آموزش Utility Type‌ها در TypeScript.md",
+    "typescript/در TypeScript، Generic.md",
+    "nextjs/PPR partial pre rendering.md",
+    "React/useDeferredValue.md",
+    "React/React19.md",
+    "React/React 19.md",
+    "React",
+    "css 3/tailwindcss v4.md",
+    "nextjs/تفاوت revalidateTag و revalidatePath چیه؟.md",
+    "nextjs/fetchwrapper.md",
+    "javascript/Arrays.md",
+    "solution/Jwt.md",
+    "javascript/1-promise/0-تعریف prmoise.md",
+    "Untitled 1.md",
+    "Untitled.md",
+    "javascript/1-promise/promise in nextjs 15-2.md",
+    "javascript/1-promise/3-مفهوم fault-tolerant یا تحمل خطا توی برنامه‌نویسی.md",
+    "planing",
+    "javascript/2-objects/توضیحات کامل درباره Objectها.md",
+    "javascript/2-objects/Untitled.md",
+    "interview/چه سوالاتی  سختی برای مصاحبه به عنوان مصاحبه کننده بپرس و بهشون هم کارجو جواب بده که مشکلی برای حل مقادیر نداشته باشیم ؟.md",
+    "interview/Untitled",
+    "javascript/2-objects",
+    "javascript/1-promise",
+    "javascript",
+    "solution/7831.jpg",
+    "component",
+    "Untitled 1.canvas",
+    "Untitled 2.canvas"
+  ]
+}

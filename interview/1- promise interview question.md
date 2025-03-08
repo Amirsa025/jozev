@@ -1,0 +1,326 @@
+### تعریف `Promise` در جاوااسکریپت
+
+**`Promise`** یک شیء (Object) در جاوااسکریپت است که برای مدیریت عملیات ناهمزمان (Asynchronous Operations) استفاده می‌شود. این شیء به شما امکان می‌دهد تا نتیجه یک عملیات ناهمزمان را به صورت ساختارمند و قابل پیش‌بینی مدیریت کنید. 
+
+یک `Promise` می‌تواند در یکی از سه حالت زیر باشد:
+1. **Pending (معلق):** حالت اولیه، زمانی که عملیات ناهمزمان هنوز در حال اجرا است.
+2. **Fulfilled (موفق):** حالتی که عملیات ناهمزمان با موفقیت انجام شده است و نتیجه آن آماده است.
+3. **Rejected (رد شده):** حالتی که عملیات ناهمزمان با خطا مواجه شده است.
+
+---
+
+### نحوه ایجاد یک `Promise`
+
+یک `Promise` با استفاده از سازنده (`constructor`) ایجاد می‌شود. این سازنده یک تابع دریافت می‌کند که دو پارامتر دارد:
+- **`resolve`:** یک تابع که وقتی عملیات با موفقیت انجام شد فراخوانی می‌شود.
+- **`reject`:** یک تابع که وقتی عملیات با خطا مواجه شد فراخوانی می‌شود.
+
+#### مثال:
+```javascript
+const myPromise = new Promise((resolve, reject) => {
+  const success = true; // فرض کنید این وضعیت عملیات را مشخص می‌کند
+  if (success) {
+    resolve("Operation succeeded!"); // عملیات موفق بود
+  } else {
+    reject("Operation failed!"); // عملیات با خطا مواجه شد
+  }
+});
+
+// مدیریت نتیجه Promise
+myPromise
+  .then((result) => console.log(result)) // اگر موفق شود
+  .catch((error) => console.error(error)); // اگر رد شود
+```
+
+---
+
+### ویژگی‌های کلیدی `Promise`
+
+1. **زنجیره‌ای شدن (Chaining):**
+   - متد `.then()` می‌تواند چندین بار زنجیره‌ای فراخوانی شود تا نتیجه‌های متوالی را پردازش کند.
+   - اگر یک `.then()` مقداری را برگرداند، آن مقدار به عنوان ورودی به `.then()` بعدی منتقل می‌شود.
+
+   #### مثال:
+   ```javascript
+   const promise = Promise.resolve(5);
+
+   promise
+     .then((value) => value + 2) // 5 + 2 = 7
+     .then((value) => value * 3) // 7 * 3 = 21
+     .then((result) => console.log(result)); // خروجی: 21
+   ```
+
+2. **مدیریت خطاها:**
+   - متد `.catch()` برای مدیریت خطاهای رخ داده در هر نقطه از زنجیره استفاده می‌شود.
+   - اگر یک `Promise` رد شود، کنترل به اولین `.catch()` منتقل می‌شود.
+
+   #### مثال:
+   ```javascript
+   const promise = Promise.reject("Something went wrong!");
+
+   promise
+     .then((result) => console.log(result))
+     .catch((error) => console.error("Error:", error)); // خروجی: "Error: Something went wrong!"
+   ```
+
+3. **پاک‌سازی (Cleanup):**
+   - متد `.finally()` مستقل از اینکه `Promise` موفق شود یا نه، اجرا می‌شود. این متد معمولاً برای انجام عملیات پاک‌سازی (مثل بستن اتصالات شبکه) استفاده می‌شود.
+
+   #### مثال:
+   ```javascript
+   const promise = Promise.resolve("Success");
+
+   promise
+     .then((result) => console.log(result))
+     .catch((error) => console.error(error))
+     .finally(() => console.log("Operation completed")); // همیشه اجرا می‌شود
+   ```
+
+---
+
+### کاربردهای `Promise`
+
+1. **درخواست‌های شبکه (API Calls):**
+   - برای مدیریت درخواست‌های HTTP (مثل `fetch`).
+   
+   #### مثال:
+   ```javascript
+   fetch("https://api.example.com/data")
+     .then((response) => response.json())
+     .then((data) => console.log(data))
+     .catch((error) => console.error("Error fetching data:", error));
+   ```
+
+2. **عملیات تأخیری (Delayed Operations):**
+   - برای ایجاد تأخیر در اجرای کد.
+
+   #### مثال:
+   ```javascript
+   function delay(ms) {
+     return new Promise((resolve) => setTimeout(resolve, ms));
+   }
+
+   delay(2000).then(() => console.log("Executed after 2 seconds"));
+   ```
+
+3. **اجرای موازی و متوالی:**
+   - برای اجرای چندین عملیات ناهمزمان به صورت موازی (`Promise.all`) یا متوالی (با `.then()`).
+
+---
+
+### نتیجه‌گیری
+
+**`Promise`** یک ابزار قدرتمند در جاوااسکریپت است که به شما کمک می‌کند تا عملیات ناهمزمان را به صورت تمیز، قابل خواندن و قابل نگهداری مدیریت کنید. با استفاده از متدهای مختلف مانند `.then()`, `.catch()` و `.finally()`، می‌توانید نتیجه عملیات‌ها را پردازش کنید و خطاهای احتمالی را مدیریت کنید. 
+
+**پاسخ نهایی:**  
+`Promise` یک شیء در جاوااسکریپت است که برای مدیریت عملیات ناهمزمان استفاده می‌شود و می‌تواند در حالت‌های Pending (معلق)، Fulfilled (موفق) یا Rejected (رد شده) باشد. آن را می‌توان با استفاده از سازنده `new Promise()` ایجاد کرد و با متدهای `.then()`, `.catch()` و `.finally()` مدیریت کرد.
+
+==========================================================
+
+در مصاحبه‌های شغلی، سوالات مربوط به `Promise`ها معمولاً برای ارزیابی تسلط شما بر مدیریت عملیات ناهمزمان (Asynchronous Operations) در جاوااسکریپت طراحی می‌شوند. سطح سوالات متوسط و سخت معمولاً شامل سناریوهای پیچیده‌تر، درک عمیق از رفتار `Promise`ها و نحوه استفاده از آنها در پروژه‌های واقعی است. در ادامه چندین نمونه سوال با سطح متوسط و سخت آورده شده است:
+
+---
+
+### **1. توضیح دهید که چرا `Promise.all` زمانی رد می‌شود که حتی یکی از `Promise`ها رد شود؟**
+#### پاسخ:
+`Promise.all`
+برای اجرای موازی چندین `Promise` طراحی شده است و هدف آن این است که فقط زمانی موفق شود که همه `Promise`ها موفق شوند. اگر حتی یکی از `Promise`ها رد شود، تمام فرآیند ناموفق محسوب می‌شود، زیرا در بسیاری از موارد (مثل دریافت داده‌های وابسته از APIها)، اگر یک قسمت از داده‌ها در دسترس نباشد، کل فرآیند معنای خود را از دست می‌دهد.
+
+#### مثال:
+```javascript
+const promise1 = Promise.resolve(3);
+const promise2 = Promise.reject("Error");
+const promise3 = Promise.resolve(5);
+
+Promise.all([promise1, promise2, promise3])
+  .then((results) => console.log("All resolved:", results))
+  .catch((error) => console.error("One failed:", error));
+// خروجی: "One failed: Error"
+```
+
+---
+
+### **2. تفاوت بین `Promise.all` و `Promise.allSettled` چیست؟**
+#### پاسخ:
+- **`Promise.all`:** اگر یکی از `Promise`ها رد شود، کل `Promise` جدید نیز رد می‌شود.
+- **`Promise.allSettled`:** وضعیت همه `Promise`ها (چه موفق، چه ناموفق) را گزارش می‌دهد و هیچ‌وقت رد نمی‌شود.
+
+#### مثال:
+```javascript
+const promise1 = Promise.resolve(3);
+const promise2 = Promise.reject("Error");
+const promise3 = Promise.resolve(5);
+
+Promise.allSettled([promise1, promise2, promise3])
+  .then((results) => {
+    results.forEach((result, index) => {
+      console.log(`Promise ${index + 1}:`, result);
+    });
+  });
+// خروجی:
+// Promise 1: { status: 'fulfilled', value: 3 }
+// Promise 2: { status: 'rejected', reason: 'Error' }
+// Promise 3: { status: 'fulfilled', value: 5 }
+```
+
+---
+
+### **3. چگونه می‌توانید یک `Promise` را با استفاده از `async/await` مدیریت کنید؟**
+#### پاسخ:
+`async/await` یک سینتکس تمیزتر برای کار با `Promise`ها است. با استفاده از `async` می‌توانید یک تابع را به صورت ناهمزمان تعریف کنید و با `await` منتظر شدن یک `Promise` بمانید.
+
+#### مثال:
+```javascript
+async function fetchData() {
+  try {
+    const data = await fetch("https://api.example.com/data");
+    const json = await data.json();
+    console.log(json);
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
+}
+
+fetchData();
+```
+
+---
+
+### **4. چگونه می‌توانید یک `Promise` را با تأخیر (Delay) ایجاد کنید؟**
+#### پاسخ:
+برای ایجاد یک `Promise` با تأخیر، می‌توانید از `setTimeout` داخل یک `Promise` استفاده کنید.
+
+#### مثال:
+```javascript
+function delay(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+delay(2000).then(() => console.log("Executed after 2 seconds"));
+```
+
+---
+
+### **5. توضیح دهید که `Promise.race` چگونه کار می‌کند و چه موقع از آن استفاده می‌کنید؟**
+#### پاسخ:
+`Promise.race` اولین `Promise`ای که مقداردهی شود (چه موفق، چه ناموفق) را برمی‌گرداند. این متد معمولاً در سناریوهایی استفاده می‌شود که می‌خواهید اولین پاسخ از چندین منبع را دریافت کنید.
+
+#### مثال:
+```javascript
+const promise1 = new Promise((resolve) => setTimeout(resolve, 500, "Fast"));
+const promise2 = new Promise((resolve) => setTimeout(resolve, 1000, "Slow"));
+
+Promise.race([promise1, promise2])
+  .then((result) => console.log("Winner:", result));
+// خروجی: "Winner: Fast"
+```
+
+---
+
+### **6. چگونه می‌توانید یک `Promise` را به صورت دستی رد کنید؟**
+#### پاسخ:
+برای رد کردن دستی یک `Promise`، می‌توانید از `Promise.reject` استفاده کنید.
+
+#### مثال:
+```javascript
+function validateInput(input) {
+  if (!input) {
+    return Promise.reject("Input is required");
+  }
+  return Promise.resolve("Input is valid");
+}
+
+validateInput("")
+  .then((message) => console.log(message))
+  .catch((error) => console.error(error));
+// خروجی: "Input is required"
+```
+
+---
+
+### **7. چگونه می‌توانید یک `Promise` را با استفاده از `Promise.any` مدیریت کنید؟**
+#### پاسخ:
+`Promise.any` اولین `Promise`ای که موفق شود را برمی‌گرداند. اگر همه `Promise`ها رد شوند، یک خطای `AggregateError` برمی‌گرداند.
+
+#### مثال:
+```javascript
+const promise1 = Promise.reject("Error 1");
+const promise2 = new Promise((resolve) => setTimeout(resolve, 500, "Success"));
+const promise3 = new Promise((resolve) => setTimeout(resolve, 1000, "Another success"));
+
+Promise.any([promise1, promise2, promise3])
+  .then((result) => console.log("First success:", result))
+  .catch((error) => console.error("All promises failed:", error.errors));
+// خروجی: "First success: Success"
+```
+
+---
+
+### **8. چگونه می‌توانید یک `Promise` را با استفاده از `Promise.allSettled` مدیریت کنید؟**
+#### پاسخ:
+`Promise.allSettled` وضعیت همه `Promise`ها را گزارش می‌دهد، بدون در نظر گرفتن اینکه آنها موفق شده‌اند یا نه.
+
+#### مثال:
+```javascript
+const promise1 = Promise.resolve(3);
+const promise2 = Promise.reject("Error");
+const promise3 = Promise.resolve(5);
+
+Promise.allSettled([promise1, promise2, promise3])
+  .then((results) => {
+    results.forEach((result, index) => {
+      if (result.status === "fulfilled") {
+        console.log(`Promise ${index + 1} succeeded with value:`, result.value);
+      } else {
+        console.error(`Promise ${index + 1} failed with reason:`, result.reason);
+      }
+    });
+  });
+```
+
+---
+
+### **9. چگونه می‌توانید یک `Promise` را با استفاده از `Promise.resolve` و `Promise.reject` مدیریت کنید؟**
+#### پاسخ:
+`Promise.resolve` یک `Promise` موفق و `Promise.reject` یک `Promise` رد شده ایجاد می‌کند.
+
+#### مثال:
+```javascript
+const successPromise = Promise.resolve("Success");
+const failurePromise = Promise.reject("Failure");
+
+successPromise.then((value) => console.log(value)); // خروجی: "Success"
+failurePromise.catch((error) => console.error(error)); // خروجی: "Failure"
+```
+
+---
+
+### **10. چگونه می‌توانید یک `Promise` را با استفاده از `Promise.finally` مدیریت کنید؟**
+#### پاسخ:
+`finally` یک بلاک اجباری است که مستقل از اینکه `Promise` موفق شود یا نه، اجرا می‌شود. این متد معمولاً برای انجام عملیات پاک‌سازی (Cleanup) استفاده می‌شود.
+
+#### مثال:
+```javascript
+function fetchData() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => resolve("Data"), 1000);
+  });
+}
+
+fetchData()
+  .then((data) => console.log(data))
+  .catch((error) => console.error(error))
+  .finally(() => console.log("Operation completed"));
+// خروجی:
+// Data
+// Operation completed
+```
+
+---
+
+### **نتیجه‌گیری**
+
+سوالات مربوط به `Promise`ها در مصاحبه‌ها معمولاً به دنبال ارزیابی درک عمیق شما از مفاهیم ناهمزمانی و نحوه استفاده از ابزارهای موجود در جاوااسکریپت هستند. با تسلط بر متدهای مختلف `Promise` و توانایی حل مسائل پیچیده، می‌توانید در این بخش از مصاحبه موفق شوید. 
+
+**پاسخ نهایی:**  
+سوالات متوسط و سخت مرتبط با `Promise`ها شامل تفاوت بین متدهای مختلف (`all`, `allSettled`, `race`, `any`)، مدیریت خطاها، استفاده از `async/await`، ایجاد `Promise`های دستی و سناریوهای پیچیده مانند تأخیر و پاک‌سازی است.
