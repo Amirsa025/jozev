@@ -57,13 +57,15 @@
    startTransition(() => setList(newList));
    ```
 
-8. **Transition در React 19 چیست؟**  
+8. **Transition در React 19
+چیست؟**  
    **پاسخ:** به‌روزرسانی‌های غیرفوری را به تعویق می‌اندازد.  
    ```jsx
    startTransition(() => setHeavyState(newValue));
    ```
 
-9. **Controlled vs Uncontrolled Components چیست؟**  
+9. **Controlled vs Uncontrolled Components 
+10. چیست؟**  
    **پاسخ:** Controlled توسط state مدیریت می‌شود، Uncontrolled توسط DOM.  
    ```jsx
    const [value, setValue] = useState(""); // Controlled
@@ -100,7 +102,8 @@
     }
     ```
 
-14. **React Fragments چیست؟**  
+14. **React Fragments 
+15. چیست؟**  
     **پاسخ:** از رندر نود اضافی جلوگیری می‌کند.  
     ```jsx
     <> <div>1</div> <div>2</div> </>
@@ -166,7 +169,7 @@
 
 25. **Client-side vs Server-side Rendering چیست؟**  
     **پاسخ:** CSR در مرورگر و SSR روی سرور رندر می‌شود.  
-    **توضیح:** SSR برای SEO بهتر است.
+    **توضیح:** SSR برایSEO بهتر است.
 
 26. **چگونه لیست بزرگ را بهینه رندر می‌کنید؟**  
     **پاسخ:** از `React.memo` و کلیدها استفاده کنید.  
@@ -178,7 +181,8 @@
     **پاسخ:** معماری جدید برای رندر غیرهمزمان.  
     **توضیح:** رندر را به تکه‌های کوچک تقسیم می‌کند.
 
-28. **SuspenseList چیست؟**  
+28. **SuspenseList
+29. چیست؟**  
     **پاسخ:** مدیریت ترتیب بارگذاری چندین Suspense.  
     ```jsx
     <SuspenseList><Suspense>...</Suspense></SuspenseList>
